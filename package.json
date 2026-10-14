@@ -1,0 +1,15 @@
+{
+  "name": "linked-ps-web-bruno-resende",
+  "version": "1.0.0",
+  "description": "Landing page para consultorio de psicologia, desafio tecnico do processo seletivo da Linked Empresa Junior.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tailwindcss -i src/input.css -o dist/output.css --watch",
+    "build": "tailwindcss -i src/input.css -o dist/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}

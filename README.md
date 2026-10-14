@@ -28,8 +28,23 @@ cd linked-ps-web-bruno-resende
 Depois, basta abrir o arquivo `index.html` no navegador.
 
 > O CSS compilado (`dist/output.css`) está versionado justamente para que isso funcione
-> sem nenhuma etapa de instalação. As instruções de desenvolvimento (recompilar o CSS)
-> serão adicionadas aqui quando o Tailwind for configurado.
+> sem nenhuma etapa de instalação.
+
+### Desenvolvimento
+
+Para alterar os estilos é preciso recompilar o CSS. Requer Node.js:
+
+```bash
+npm install
+npm run dev
+```
+
+O `npm run dev` fica observando `src/input.css` e os arquivos HTML, recompilando
+`dist/output.css` a cada alteração. Para gerar a versão final minificada:
+
+```bash
+npm run build
+```
 
 ## Tecnologias
 
