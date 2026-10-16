@@ -1,15 +1,14 @@
 # Landing Page: Consultório de Psicologia
 
-Desafio técnico de Front-End do processo seletivo da **Linked Empresa Júnior**.
+Desafio técnico de Front-End do processo seletivo da **Linked**.
 
 **Candidato:** Bruno Resende
 
 ## Sobre o projeto
 
 Implementação de uma landing page para um consultório de psicologia e psicoterapia,
-a partir de um layout pronto no Figma. O objetivo é reproduzir o design com fidelidade
-(cores, tipografia, espaçamentos e componentes), com foco em HTML semântico,
-responsividade e acessibilidade básica.
+a partir de um layout pronto no Figma. O objetivo é reproduzir o design com fidelidade,
+com foco em responsividade e acessibilidade básica.
 
 A página tem sete seções: cabeçalho com navegação, hero, nossos serviços,
 horário de atendimento, feedbacks, contato (endereço, mapa e formulário) e rodapé.
@@ -21,7 +20,7 @@ horário de atendimento, feedbacks, contato (endereço, mapa e formulário) e ro
 O projeto é estático e não precisa de build nem de servidor para ser visualizado:
 
 ```bash
-git clone https://github.com/<usuario>/linked-ps-web-bruno-resende.git
+git clone https://github.com/zeroplank/linked-ps-web-bruno-resende.git
 cd linked-ps-web-bruno-resende
 ```
 
@@ -30,31 +29,13 @@ Depois, basta abrir o arquivo `index.html` no navegador.
 > O CSS compilado (`dist/output.css`) está versionado justamente para que isso funcione
 > sem nenhuma etapa de instalação.
 
-### Desenvolvimento
-
-Para alterar os estilos é preciso recompilar o CSS. Requer Node.js:
-
-```bash
-npm install
-npm run dev
-```
-
-O `npm run dev` fica observando `src/input.css` e os arquivos HTML, recompilando
-`dist/output.css` a cada alteração. Para gerar a versão final minificada:
-
-```bash
-npm run build
-```
-
 ## Tecnologias
 
 - **HTML5** para a marcação semântica
-- **CSS3** com **Tailwind CSS**, usado via CLI e não por CDN
+- **CSS3** com **Tailwind CSS**, usado via CLI
 - **JavaScript (Vanilla)**, sem bibliotecas ou frameworks de componentes
 
 ## Decisões técnicas
-
-Esta seção é atualizada ao longo do desenvolvimento.
 
 ### Tailwind via CLI, com o CSS compilado versionado
 
@@ -65,10 +46,15 @@ performance. Por isso optei pelo Tailwind CLI, que gera um arquivo estático.
 Como consequência, o `dist/output.css` é commitado, e não ignorado como seria o padrão
 num projeto com pipeline de build. O `node_modules/` continua no `.gitignore`.
 
+Para alterar os estilos é preciso Node.js: `npm install` e `npm run dev` recompilam o CSS
+a cada alteração, e `npm run build` gera a versão minificada.
+
 ### Fontes locais, não via CDN
 
 Pelo mesmo motivo, as fontes são servidas de `assets/fonts/` via `@font-face`, e não por
 `<link>` para o Google Fonts. Assim a tipografia se mantém fiel ao Figma mesmo offline.
+Baixei apenas o subconjunto `latin`, que cobre todos os acentos do português e pesa metade
+do `latin-ext`.
 
 ### Design tokens no tema do Tailwind
 
@@ -77,6 +63,44 @@ tema do Tailwind, em vez de valores soltos repetidos no HTML. Componentes que se
 (botões, cabeçalho de seção, cards) são extraídos para classes próprias, para manter a
 marcação legível.
 
+Os tamanhos de fonte foram obtidos medindo a largura de cada texto no layout e calculando
+qual tamanho da Inria produz aquela largura, em vez de estimar pela altura das letras, que
+é bem menos preciso.
+
+### Escala fluida
+
+O layout do Figma tem 1920px de largura. Com tamanhos fixos em pixels, a página só ficaria
+fiel nessa largura exata: em qualquer outra, cada elemento ocuparia uma fração diferente da
+tela e as quebras de linha mudariam.
+
+Por isso a raiz do CSS usa `clamp(0.5rem, 100vw / 120, 1.25rem)`, que dá 16px em 1920px e
+escala proporcionalmente nas demais larguras. Abaixo de 1024px volta a 16px, porque ali
+começa o layout mobile, que não existe no Figma. A contrapartida é que o texto acompanha o
+tamanho da janela, o que reduz o efeito da preferência de fonte do navegador.
+
+### Imagens
+
+Todas convertidas para WebP. A imagem do hero saiu de 3,9 MB para 60 KB.
+
+A borda curva do hero vem da transparência do próprio PNG exportado do Figma, que já traz a
+curva e o degradê da borda esquerda. Recriar a forma com `clip-path` daria um resultado
+parecido, não igual.
+
+A flor decorativa teve a cor e a opacidade do layout embutidas no arquivo, e é posicionada
+em pseudo-elementos, não como `background-image`, porque uma das instâncias é rotacionada.
+
+### Card de horários translúcido
+
+O card é branco a 47% de opacidade, e não branco sólido, para que as flores decorativas
+apareçam através dele como no layout. O valor veio de medir a cor da flor dentro e fora do
+card no Figma.
+
+### Rolagem suave
+
+Os links internos usam `scroll-behavior: smooth` no CSS, em vez de JavaScript. A regra é
+desligada sob `prefers-reduced-motion`, respeitando quem configurou o sistema para reduzir
+animações.
+
 ## Resolução de ambiguidades do layout
 
 O Figma apresenta apenas a versão desktop. As decisões abaixo cobrem o que não está
@@ -84,6 +108,8 @@ especificado no design e serão detalhadas conforme forem implementadas:
 
 - **Layout mobile:** como cada seção se reorganiza em telas menores
 - **Menu mobile:** a navegação não cabe em telas pequenas e vira um menu recolhível
+- **Estados de hover:** não existem no layout. O botão primário escurece e o secundário
+  inverte para fundo verde com texto branco
 - **Mapa:** imagem estática com link para o Google Maps, em vez de `iframe`, para não
   depender de conexão nem de cookies de terceiros
 - **Formulário:** estático, conforme permitido no edital. Validação em JavaScript e

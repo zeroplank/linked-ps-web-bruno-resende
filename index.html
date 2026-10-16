@@ -6,35 +6,102 @@
   <title>Consultório de Psicologia e Psicoterapia</title>
   <meta name="description" content="Consultório de psicologia e psicoterapia. Agende sua consulta e conheça nossos serviços, horários de atendimento e localização.">
   <link rel="stylesheet" href="dist/output.css">
-  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <a href="#main">Pular para o conteúdo</a>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-  <header>
-    <a href="#inicio">Nome / Logo</a>
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#horarios">Horários</a></li>
-        <li><a href="#feedbacks">Feedbacks</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <header class="border-b border-brand bg-surface">
+    <div class="flex items-center justify-between px-gutter py-6.25">
+      <a class="font-serif text-logo" href="#inicio">Nome / Logo</a>
+      <nav aria-label="Navegação principal">
+        <ul class="flex items-center gap-10">
+          <li><a class="nav-link" href="#inicio">Início</a></li>
+          <li><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li><a class="nav-link" href="#horarios">Horários</a></li>
+          <li><a class="nav-link" href="#feedbacks">Feedbacks</a></li>
+          <li><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
     <section id="inicio" aria-labelledby="inicio-titulo">
-      <h1 id="inicio-titulo">Lorem Ipsum.</h1>
+      <div class="grid lg:min-h-[67.5rem] lg:grid-cols-[45fr_55fr]">
+        <div class="flex flex-col px-gutter pt-12 pb-16 lg:pb-24">
+          <p class="text-kicker">Consultório de psicologia e psicoterapia.</p>
+          <div class="flex flex-1 flex-col items-start justify-center gap-6 pt-16 lg:pl-8 lg:pt-0">
+            <h1 id="inicio-titulo" class="text-h1">Lorem Ipsum.</h1>
+            <p class="max-w-[44.5rem] text-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a class="btn btn-primary" href="#contato">
+                Agendar
+              </a>
+              <a class="btn btn-secondary" href="#servicos">
+                Saiba mais
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="relative order-first h-96 lg:order-none lg:h-auto">
+          <img class="absolute inset-0 h-full w-full object-cover object-left"
+               src="assets/images/hero.webp"
+               alt="Psicóloga anotando em uma prancheta durante uma consulta."
+               width="1400" height="1408">
+        </div>
+      </div>
     </section>
 
-    <section id="servicos" aria-labelledby="servicos-titulo">
-      <h2 id="servicos-titulo">Nossos Serviços.</h2>
+    <section id="servicos" aria-labelledby="servicos-titulo" class="bg-brand px-gutter pt-section pb-[16.5rem] text-surface">
+      <div class="mx-auto max-w-lead text-center">
+        <h2 id="servicos-titulo" class="section-title">Nossos Serviços.</h2>
+        <p class="section-subtitle mt-5">Qualidades que trazem toda diferença para o paciente.</p>
+        <div class="section-divider"></div>
+        <p class="mt-18 text-lead">
+          <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <strong>Duis aute irure dolor</strong> in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+          in <strong>culpa qui officia deserunt mollit anim</strong> id est laborum.
+        </p>
+      </div>
     </section>
 
-    <section id="horarios" aria-labelledby="horarios-titulo">
-      <h2 id="horarios-titulo">Horário de Atendimento.</h2>
+    <section id="horarios" aria-labelledby="horarios-titulo" class="flores overflow-hidden px-gutter pt-28 pb-section">
+      <div class="text-center text-brand">
+        <h2 id="horarios-titulo" class="section-title">Horário de Atendimento.</h2>
+        <p class="section-subtitle mt-5 text-ink">Estamos disponíveis para agendamento de consultas e visitas.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="card mx-auto mt-14 flex max-w-[67rem] flex-col items-center gap-10 p-10 md:min-h-[31.5rem] md:flex-row md:justify-center md:gap-24">
+        <img class="w-50 shrink-0"
+             src="assets/images/relogio.webp"
+             alt=""
+             width="300" height="242"
+             loading="lazy">
+        <table class="w-full max-w-[36.75rem] rounded-lg bg-brand text-surface">
+          <caption class="sr-only">Horários de atendimento</caption>
+          <tbody class="font-sans">
+            <tr class="border-b border-surface-muted">
+              <th class="whitespace-nowrap px-8 py-6 text-left font-normal" scope="row">Segunda - Sexta</th>
+              <td class="whitespace-nowrap px-8 py-6 text-right">08:00 - 17:00</td>
+            </tr>
+            <tr class="border-b border-surface-muted">
+              <th class="whitespace-nowrap px-8 py-6 text-left font-normal" scope="row">Sábado</th>
+              <td class="whitespace-nowrap px-8 py-6 text-right">10:00 - 14:00</td>
+            </tr>
+            <tr>
+              <th class="whitespace-nowrap px-8 py-6 text-left font-normal" scope="row">Domingo</th>
+              <td class="whitespace-nowrap px-8 py-6 text-right font-bold">Fechado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="feedbacks" aria-labelledby="feedbacks-titulo">

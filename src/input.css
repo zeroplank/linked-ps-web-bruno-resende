@@ -1,4 +1,169 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Inria Serif";
+  src: url("../assets/fonts/inria-serif-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Serif";
+  src: url("../assets/fonts/inria-serif-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src: url("../assets/fonts/inria-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src: url("../assets/fonts/inria-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
+  --color-brand: #004346;
+  --color-surface: #ffffff;
+  --color-surface-muted: rgb(255 255 255 / 47%);
+  --color-ink: #000000;
+
+  --font-serif: "Inria Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Inria Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-logo: 2.5rem;
+  --text-logo--line-height: 1.5;
+  --text-kicker: 2.5rem;
+  --text-kicker--line-height: 1.5;
+  --text-body: 2.125rem;
+  --text-body--line-height: 1.26;
+  --text-lead: 2.375rem;
+  --text-lead--line-height: 1.26;
+  --text-nav: 2rem;
+  --text-nav--line-height: 1.5;
+  --text-button: 2rem;
+  --text-button--line-height: 1;
+  --text-button--letter-spacing: 0.08em;
+  --text-subtitle: 2rem;
+  --text-subtitle--line-height: 1.5;
+  --text-h2: 5.875rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--font-weight: 700;
+  --text-h1: 3.75rem;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 700;
+
+  --container-site: 75rem;
+  --container-lead: 68.5rem;
+
+  --spacing-gutter: 3rem;
+  --spacing-section: 12.5rem;
+}
+
+@layer base {
+  html {
+    font-size: clamp(0.5rem, 100vw / 120, 1.25rem);
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    html {
+      font-size: 100%;
+    }
+  }
+
+  body {
+    @apply bg-surface font-serif text-body text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute left-gutter top-4 z-50 -translate-y-24 rounded-full bg-brand px-6 py-3 font-sans text-button text-surface transition-transform focus-visible:translate-y-0;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-4 rounded-full px-11 py-4 font-sans text-button uppercase transition-colors;
+  }
+
+  .btn::before {
+    @apply size-6 shrink-0 rounded-full border border-current;
+    content: "";
+  }
+
+  .btn-primary {
+    @apply bg-brand text-surface hover:bg-[color-mix(in_srgb,var(--color-brand)_82%,black)];
+  }
+
+  .btn-secondary {
+    @apply border border-brand bg-surface text-brand hover:bg-brand hover:text-surface;
+  }
+
+  .nav-link {
+    @apply font-sans text-nav transition-opacity hover:opacity-60;
+  }
+
+  .section-title {
+    @apply font-serif text-h2;
+  }
+
+  .section-subtitle {
+    @apply font-serif text-subtitle;
+  }
+
+  .section-divider {
+    @apply mx-auto mt-6 h-px w-60 bg-current opacity-40;
+  }
+
+  .card {
+    @apply rounded-2xl border border-brand bg-surface-muted;
+  }
+
+  .flores {
+    position: relative;
+  }
+
+  .flores::before,
+  .flores::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: url("../assets/images/flor.webp") no-repeat center / contain;
+  }
+
+  .flores::before {
+    left: -15.75rem;
+    top: 14.25rem;
+    width: 64rem;
+    height: 64rem;
+  }
+
+  .flores::after {
+    right: -24.375rem;
+    top: -21.25rem;
+    width: 75rem;
+    height: 75rem;
+    transform: rotate(72deg);
+  }
 }
