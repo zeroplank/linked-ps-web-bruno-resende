@@ -2,7 +2,7 @@
 
 Desafio técnico de Front-End do processo seletivo da **Linked**.
 
-**Candidato:** Bruno Resende
+**Candidato:** Bruno Henrique Neves Resende
 
 ## Sobre o projeto
 
