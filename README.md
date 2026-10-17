@@ -13,6 +13,8 @@ com foco em responsividade e acessibilidade básica.
 A página tem sete seções: cabeçalho com navegação, hero, nossos serviços,
 horário de atendimento, feedbacks, contato (endereço, mapa e formulário) e rodapé.
 
+**[Ver a página publicada](https://zeroplank.github.io/linked-ps-web-bruno-resende/)**
+
 [Layout no Figma](https://www.figma.com/design/An7g0BLsFgcrifdUfg0x3w/Landing-page-Psicologos?node-id=0-1)
 
 ## Como rodar
