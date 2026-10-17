@@ -95,22 +95,55 @@ O card é branco a 47% de opacidade, e não branco sólido, para que as flores d
 apareçam através dele como no layout. O valor veio de medir a cor da flor dentro e fora do
 card no Figma.
 
+### Responsividade
+
+O Figma só traz a versão desktop, então o comportamento em telas menores foi definido por
+mim. A partir de 1024px o layout segue o design. Abaixo disso:
+
+- hero, horários, feedbacks e contato passam de duas colunas para empilhados
+- a imagem do hero vai para cima do texto, preservando a ordem de leitura
+- o rodapé vai de quatro colunas para duas e depois uma
+- os recuos laterais caem de 128px para o respiro padrão
+
+Conferido em 375, 768, 1024, 1440 e 1920 pixels: nenhuma rolagem horizontal e nenhum
+elemento ultrapassando a largura da tela.
+
+### Acessibilidade
+
+- marcação semântica, um único `h1` e hierarquia de títulos sem saltos
+- toda seção com nome acessível por `aria-labelledby`
+- skip link como primeiro item da ordem de tabulação
+- anel de foco visível em todo elemento interativo, com `currentColor` para funcionar
+  tanto sobre fundo claro quanto escuro
+- menu mobile com `aria-expanded`, fechamento por Escape e devolução do foco ao botão
+- campos do formulário com `label` ligado por `for`, e retorno em um elemento `role="status"`
+- horários em `table` com `th scope="row"`, depoimentos em `blockquote` com `cite`
+- imagens decorativas com `alt` vazio, imagens de conteúdo com descrição
+- contraste conferido em todos os textos, dentro do mínimo da WCAG AA
+
 ### Rolagem suave
 
 Os links internos usam `scroll-behavior: smooth` no CSS, em vez de JavaScript. A regra é
 desligada sob `prefers-reduced-motion`, respeitando quem configurou o sistema para reduzir
 animações.
 
+### Favicon e meta tags
+
+O favicon reaproveita a flor decorativa do layout, na cor da marca. Há também
+`apple-touch-icon`, `theme-color` e as meta tags Open Graph para a prévia em redes sociais.
+
 ## Resolução de ambiguidades do layout
 
 O Figma apresenta apenas a versão desktop. As decisões abaixo cobrem o que não está
 especificado no design e serão detalhadas conforme forem implementadas:
 
-- **Layout mobile:** como cada seção se reorganiza em telas menores
+- **Layout mobile:** o Figma não traz essa versão, então defini o empilhamento de cada
+  seção e uma base tipográfica própria para telas pequenas
 - **Menu mobile:** a navegação não cabe em telas pequenas e vira um menu recolhível
 - **Estados de hover:** não existem no layout. O botão primário escurece e o secundário
   inverte para fundo verde com texto branco
-- **Mapa:** imagem estática com link para o Google Maps, em vez de `iframe`, para não
-  depender de conexão nem de cookies de terceiros
+- **Mapa:** imagem estática em vez de `iframe`, para não depender de conexão nem de
+  cookies de terceiros. A imagem e o ícone de endereço levam ao Google Maps com o CEP
+  como busca, então o destino continua correto mesmo com o endereço fictício do layout
 - **Formulário:** estático, conforme permitido no edital. Validação em JavaScript e
   mensagem de confirmação, sem envio real de dados

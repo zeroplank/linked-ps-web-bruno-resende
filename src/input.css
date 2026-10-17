@@ -60,6 +60,8 @@
   --text-field--line-height: 1;
   --text-note: 1.5rem;
   --text-note--line-height: 1.5;
+  --text-rodape: 2.5rem;
+  --text-rodape--line-height: 1.5;
   --text-h2: 5.875rem;
   --text-h2--line-height: 1.15;
   --text-h2--font-weight: 700;
@@ -88,7 +90,7 @@
 
   @media (max-width: 1023px) {
     html {
-      font-size: 100%;
+      font-size: clamp(0.5rem, 100vw / 47, 0.5325rem);
     }
   }
 
@@ -203,7 +205,7 @@
   }
 
   .rodape-titulo {
-    @apply font-serif text-subtitle uppercase;
+    @apply font-serif text-rodape uppercase;
   }
 
   .rodape-link {

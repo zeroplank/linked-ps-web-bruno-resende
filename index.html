@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consultório de Psicologia e Psicoterapia</title>
   <meta name="description" content="Consultório de psicologia e psicoterapia. Agende sua consulta e conheça nossos serviços, horários de atendimento e localização.">
+  <meta name="theme-color" content="#004346">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Consultório de Psicologia e Psicoterapia">
+  <meta property="og:description" content="Agende sua consulta e conheça nossos serviços, horários de atendimento e localização.">
+  <meta property="og:image" content="assets/images/hero.webp">
+  <meta property="og:locale" content="pt_BR">
+
   <link rel="stylesheet" href="dist/output.css">
 </head>
 <body>
@@ -12,7 +22,7 @@
 
   <header class="relative border-b border-brand bg-surface">
     <div class="flex items-center justify-between px-gutter py-6.25">
-      <a class="font-serif text-logo" href="#inicio">Nome / Logo</a>
+      <a class="font-serif text-logo transition-opacity hover:opacity-60" href="#inicio">Nome / Logo</a>
       <button class="lg:hidden" type="button" aria-expanded="false" aria-controls="menu" data-menu-botao>
         <span class="sr-only">Abrir menu de navegação</span>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -20,7 +30,7 @@
         </svg>
       </button>
       <nav class="menu-painel" id="menu" aria-label="Navegação principal" data-menu-painel data-aberto="false">
-        <ul class="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
+        <ul class="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-20">
           <li><a class="nav-link" href="#inicio">Início</a></li>
           <li><a class="nav-link" href="#servicos">Serviços</a></li>
           <li><a class="nav-link" href="#horarios">Horários</a></li>
@@ -36,13 +46,13 @@
       <div class="grid lg:min-h-[67.5rem] lg:grid-cols-[45fr_55fr]">
         <div class="flex flex-col px-gutter pt-12 pb-16 lg:pb-24">
           <p class="text-kicker">Consultório de psicologia e psicoterapia.</p>
-          <div class="flex flex-1 flex-col items-start justify-center gap-6 pt-16 lg:pl-8 lg:pt-0">
+          <div class="flex flex-1 flex-col items-start justify-center gap-12 pt-16 lg:pl-8 lg:pt-0">
             <h1 id="inicio-titulo" class="text-h1">Lorem Ipsum.</h1>
             <p class="max-w-[44.5rem] text-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
+            <div class="flex flex-wrap gap-4 pt-12">
               <a class="btn btn-primary" href="#contato">
                 Agendar
               </a>
@@ -56,7 +66,7 @@
           <img class="absolute inset-0 h-full w-full object-cover object-left"
                src="assets/images/hero.webp"
                alt="Psicóloga anotando em uma prancheta durante uma consulta."
-               width="1400" height="1408">
+               width="2082" height="2094">
         </div>
       </div>
     </section>
@@ -84,11 +94,11 @@
         <div class="section-divider mx-auto"></div>
       </div>
 
-      <div class="card mx-auto mt-14 flex max-w-[67rem] flex-col items-center gap-10 p-10 md:min-h-[31.5rem] md:flex-row md:justify-center md:gap-24">
-        <img class="w-50 shrink-0"
+      <div class="card mx-auto mt-14 flex max-w-[67rem] flex-col items-center gap-10 p-8 lg:p-10 md:min-h-[31.5rem] md:flex-row md:justify-center md:gap-24">
+        <img class="w-[13.625rem] shrink-0"
              src="assets/images/relogio.webp"
              alt=""
-             width="300" height="242"
+             width="440" height="440"
              loading="lazy">
         <table class="w-full max-w-[36.75rem] rounded-lg bg-brand text-surface">
           <caption class="sr-only">Horários de atendimento</caption>
@@ -110,7 +120,7 @@
       </div>
     </section>
 
-    <section id="feedbacks" aria-labelledby="feedbacks-titulo" class="bg-brand pl-32 pr-[6.75rem] pt-28 pb-[8.5rem] text-surface">
+    <section id="feedbacks" aria-labelledby="feedbacks-titulo" class="bg-brand px-gutter pt-28 pb-[8.5rem] text-surface lg:pl-32 lg:pr-[6.75rem]">
       <div class="flex flex-col gap-20 lg:flex-row lg:items-start lg:justify-between lg:gap-24">
         <div class="max-w-[47.25rem]">
           <h2 id="feedbacks-titulo" class="section-title">Feedbacks.</h2>
@@ -157,7 +167,7 @@
         <img class="w-full rounded-2xl lg:w-[43.25rem]"
              src="assets/images/feedbacks.webp"
              alt="Pessoa escrevendo em um caderno durante uma sessão."
-             width="692" height="856"
+             width="1384" height="1712"
              loading="lazy">
       </div>
     </section>
@@ -166,34 +176,40 @@
       <h2 id="contato-titulo" class="sr-only">Contato</h2>
 
       <div class="flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:justify-center lg:gap-[7.125rem]">
-        <div class="w-full max-w-[42.1875rem] min-h-[36.625rem] rounded-2xl bg-brand p-16 text-surface">
+        <div class="w-full max-w-[42.1875rem] rounded-2xl bg-brand p-10 text-surface lg:min-h-[36.625rem] lg:p-16">
           <p class="text-subtitle">Visite-nos</p>
-          <h3 class="mt-12 flex items-center gap-4 text-body">
-            <img src="assets/icons/pin.webp" alt="" width="92" height="86" class="w-8">
-            ENDEREÇO:
-          </h3>
-          <address class="mt-6 not-italic">
-            <p class="text-body font-bold">Rua, número</p>
-            <p class="text-body font-bold">Bairro</p>
-            <p class="mt-8 text-body">CEP: 40028922</p>
-          </address>
+          <a class="mt-12 block transition-opacity hover:opacity-70"
+             href="https://www.google.com/maps/search/?api=1&amp;query=40028-922"
+             target="_blank"
+             rel="noopener">
+            <h3 class="flex items-center gap-4 text-body">
+              <img src="assets/icons/pin.webp" alt="" width="92" height="86" class="w-8">
+              ENDEREÇO:
+            </h3>
+            <address class="mt-6 not-italic">
+              <p class="text-body font-bold">Rua, número</p>
+              <p class="text-body font-bold">Bairro</p>
+              <p class="mt-8 text-body">CEP: 40028922</p>
+            </address>
+            <span class="sr-only">Abrir o endereço no Google Maps</span>
+          </a>
         </div>
 
-        <a class="block w-full max-w-[55.0625rem] rounded-2xl border border-brand/30 overflow-hidden"
-           href="https://www.google.com/maps"
+        <a class="block w-full max-w-[55.0625rem] overflow-hidden rounded-2xl border border-brand/30 transition-opacity hover:opacity-90"
+           href="https://www.google.com/maps/search/?api=1&amp;query=40028-922"
            target="_blank"
            rel="noopener">
           <img src="assets/images/mapa.webp"
                alt="Mapa com a localização do consultório no centro da cidade."
-               width="881" height="597"
+               width="1770" height="1202"
                loading="lazy">
         </a>
       </div>
 
-      <form class="mx-auto mt-[7.6875rem] w-full max-w-[73.5rem] rounded-2xl border border-brand bg-surface px-[2.875rem] pt-10 pb-[3.375rem]" novalidate>
+      <form class="card mx-auto mt-[7.6875rem] w-full max-w-[73.5rem] px-8 pt-10 pb-[3.375rem] lg:px-[2.875rem]" novalidate>
         <div class="flex flex-wrap items-center gap-5">
           <h3 class="font-serif text-lead">Formulário de contato</h3>
-          <span class="h-10 w-px bg-brand/40" aria-hidden="true"></span>
+          <span class="hidden h-10 w-px bg-brand/40 lg:block" aria-hidden="true"></span>
           <p class="font-serif text-note text-brand/70">Ficou com alguma dúvida? Converse diretamente conosco!</p>
         </div>
 
@@ -221,26 +237,26 @@
     </section>
   </main>
 
-  <footer class="bg-brand px-32 py-16 text-surface">
-    <div class="grid gap-16 sm:grid-cols-2 lg:grid-cols-4">
+  <footer class="bg-brand px-gutter py-14 text-surface lg:pl-[14.4375rem] lg:pr-[13.375rem]">
+    <div class="grid gap-16 sm:grid-cols-2 lg:grid-cols-[22.4375rem_28rem_22.0625rem_1fr] lg:gap-0">
       <section aria-labelledby="rodape-empresa">
         <h2 class="rodape-titulo" id="rodape-empresa">Empresa:</h2>
         <ul class="mt-10 flex flex-col gap-2">
           <li>
             <a class="rodape-link flex items-center gap-4" href="https://facebook.com" target="_blank" rel="noopener">
-              <img src="assets/icons/facebook.webp" alt="" width="126" height="126" class="w-9" loading="lazy">
+              <img src="assets/icons/facebook.webp" alt="" width="126" height="126" class="w-[3.3125rem]" loading="lazy">
               Facebook
             </a>
           </li>
           <li>
             <a class="rodape-link flex items-center gap-4" href="https://instagram.com" target="_blank" rel="noopener">
-              <img src="assets/icons/instagram.webp" alt="" width="126" height="126" class="w-9" loading="lazy">
+              <img src="assets/icons/instagram.webp" alt="" width="126" height="126" class="w-[3.3125rem]" loading="lazy">
               Instagram
             </a>
           </li>
           <li>
             <a class="rodape-link flex items-center gap-4" href="https://linkedin.com" target="_blank" rel="noopener">
-              <img src="assets/icons/linkedin.webp" alt="" width="126" height="126" class="w-9" loading="lazy">
+              <img src="assets/icons/linkedin.webp" alt="" width="126" height="126" class="w-[3.3125rem]" loading="lazy">
               LinkedIn
             </a>
           </li>
@@ -271,7 +287,7 @@
         <h2 class="rodape-titulo" id="rodape-contato">Contato:</h2>
         <address class="mt-10 flex flex-col gap-2 not-italic">
           <span class="text-body">Rua, número<br>Bairro</span>
-          <a class="rodape-link" href="tel:+5501234567890">+55 (01)23456-7890</a>
+          <a class="rodape-link whitespace-nowrap" href="tel:+5501234567890">+55 (01)23456-7890</a>
           <a class="rodape-link" href="mailto:email@email.com">email@email.com</a>
         </address>
       </section>
