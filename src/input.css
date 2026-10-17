@@ -56,6 +56,10 @@
   --text-button--letter-spacing: 0.08em;
   --text-subtitle: 2rem;
   --text-subtitle--line-height: 1.5;
+  --text-field: 2rem;
+  --text-field--line-height: 1;
+  --text-note: 1.5rem;
+  --text-note--line-height: 1.5;
   --text-h2: 5.875rem;
   --text-h2--line-height: 1.15;
   --text-h2--font-weight: 700;
@@ -133,7 +137,7 @@
   }
 
   .section-divider {
-    @apply mx-auto mt-6 h-px w-60 bg-current opacity-40;
+    @apply mt-6 h-px w-60 bg-current opacity-40;
   }
 
   .card {
@@ -165,5 +169,52 @@
     width: 75rem;
     height: 75rem;
     transform: rotate(72deg);
+  }
+
+  .flores-contato::before,
+  .flores-contato::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: url("../assets/images/flor.webp") no-repeat center / contain;
+  }
+
+  .flores-contato::before {
+    left: -42.1875rem;
+    top: -8.125rem;
+    width: 84.375rem;
+    height: 84.375rem;
+    transform: rotate(180deg);
+  }
+
+  .flores-contato::after {
+    left: 74.0625rem;
+    top: 45.3125rem;
+    width: 65.625rem;
+    height: 65.625rem;
+  }
+
+  .campo {
+    @apply flex h-[2.8125rem] items-center gap-4 rounded-full bg-brand px-8 font-sans text-field text-surface;
+  }
+
+  .campo input {
+    @apply w-full bg-transparent text-surface outline-none;
+  }
+
+  .rodape-titulo {
+    @apply font-serif text-subtitle uppercase;
+  }
+
+  .rodape-link {
+    @apply font-serif text-body transition-opacity hover:opacity-70;
+  }
+
+  .menu-painel {
+    @apply absolute inset-x-0 top-full hidden border-b border-brand bg-surface px-gutter py-8 lg:static lg:block lg:border-0 lg:bg-transparent lg:p-0;
+  }
+
+  .menu-painel[data-aberto="true"] {
+    @apply block;
   }
 }
